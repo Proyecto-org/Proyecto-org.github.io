@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>P.R.O.Y.E.C.T.O.</title>
+		<link rel="icon" type="image/x-icon" href="Images/tiempo.png">
+		<meta name="keywords"content="P.R.O.Y.E.C.T.O.">
+		<meta name="description" content="P.R.O.Y.E.C.T.O.">
+		<meta name="author" content="Soyo">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link id="tema-css" rel="stylesheet" href="index.css">
+	</head>
+
+	<body>
+		<h1>P.R.O.Y.E.C.T.O.</h1>
+		<p>
+			Ya queda poco
+		</p>
+		<div id="countdown"></div>
+
+<script>
+  const targetDate = new Date("2026-10-10T17:00:00+02:00").getTime();
+
+  function updateCountdown() {
+    const now = new Date().getTime();
+    const distance = targetDate - now;
+
+    if (distance <= 0) {
+      document.getElementById("countdown").innerHTML = "¡El contador ha terminado!";
+      clearInterval(interval);
+      return;
+    }
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    document.getElementById("countdown").innerHTML =
+      days + "d " + hours + "h " + minutes + "m " + seconds + "s";
+  }
+
+  const interval = setInterval(updateCountdown, 1000);
+  updateCountdown();
+</script>
+
+	</body>
+</html>
